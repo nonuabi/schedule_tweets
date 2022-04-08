@@ -1,0 +1,29 @@
+<div>
+  <div class="text-center">
+    <h1> Sign Up Panel </h1>
+  </div>
+  <div>
+    <%= form_for @user, url: sign_up_path do |form| %>
+      <% if @user.errors.any?%>
+        <div class="alert alert-danger">
+          <% @user.errors.full_messages.each do |message|%>
+            <div><%= message%></div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="mb-3">
+        <%= form.label :email, class: "form-label"%>
+        <%= form.email_field :email, placeholder: "newuser@planetspark.in", class: "form-control"%>
+      </div>
+      <div class="mb-3">
+        <%= form.label :password, class: "form-label"%>
+        <%= form.password_field :password, placeholder: "password" , class: "form-control"%>
+      </div>
+      <div class="mb-3">
+        <%= form.label :password_confirmation, class: "form-label"%>
+        <%= form.password_field :password_confirmation, placeholder: "password confirmation" , class: "form-control"%>
+      </div>
+      <%= form.submit class: "btn btn-primary "%>
+    <% end %>
+  </div>
+</div>
